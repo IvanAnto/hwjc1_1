@@ -2,7 +2,7 @@ import java.util.function.*;
 
 class Calculator {
   
-  //private static Supplier<Integer> callback; 
+  //private static Supplier<Integer> callback; // создаем статическую переменную (поле) типа Supplier. Функциональный интерфейс Supplier реализует метод get().
   
   //public Calculator(Supplier<Integer> callback) {
     //this.callback = callback; 
@@ -19,19 +19,12 @@ class Calculator {
 
   UnaryOperator<Integer> pow = x -> x * x;
   //UnaryOperator<Integer> abs = x -> x > 0 ? x : x * -1;
-  UnaryOperator<Integer> abs = x -> { 
-    if (x > 0) {
-      return x;
-    } else if (x < 0) {
-      return x * -1; 
+  BinaryOperator<Integer> abs = (x, y) -> { 
+    if (x != y) {
+     return;
+    //} else {
+      //return; 
     } 
-
-    try {
-     throw new Exception();
-    } catch (Exception e) {
-     throw new RuntimeException(e);
-    }
- 
   };
 
   Predicate<Integer> isPositive = x -> x > 0;
